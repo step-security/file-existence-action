@@ -62,4 +62,4 @@ jobs:
 Copyright © 2020 [André Storhaug](https://github.com/andstor)
 Copyright © 2025 [Step Security](https://github.com/step-security)
 
-file-existence-action is licensed under the [MIT License](https://github.com/andstor/file-existence-ation/blob/master/LICENSE).
+file-existence-action is licensed under the [MIT License](https://github.com/step-security/file-existence-ation/blob/master/LICENSE).
