@@ -1,0 +1,31 @@
+name: 'File Existence'
+description: 'GitHub Action to check for file existence'
+author: 'step-security'
+branding:
+  icon: 'file-text'
+  color: 'green'
+inputs:
+  files:
+    description: 'Comma separated string with paths to files and directories to check for existence.'
+    required: true
+  ignore_case:
+    description: 'Ignore if a file has upper or lower cases.'
+    default: "false"
+    required: false
+  follow_symbolic_links:
+    description: 'Indicates whether to follow symbolic links.'
+    default: "true"
+    required: false
+  fail:
+    description: 'Makes the Action fail on missing files.'
+    default: "false"
+    required: false
+  allow_failure:
+    description: 'This variable is deprecated in favour of "fail".'
+    required: false
+outputs:
+  files_exists:
+    description: 'Whether the file(s) exists or not.'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
