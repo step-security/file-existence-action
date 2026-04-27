@@ -12,7 +12,7 @@ inputs:
     description: 'Ignore if a file has upper or lower cases.'
     default: "false"
     required: false
-  follow_symbolic_links:
+  follow_symlinks:
     description: 'Indicates whether to follow symbolic links.'
     default: "true"
     required: false
