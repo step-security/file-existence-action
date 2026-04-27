@@ -12,7 +12,7 @@ inputs:
     description: 'Ignore if a file has upper or lower cases.'
     default: "false"
     required: false
-  follow_symbolic_links:
+  follow_symlinks:
     description: 'Indicates whether to follow symbolic links.'
     default: "true"
     required: false
@@ -23,9 +23,13 @@ inputs:
   allow_failure:
     description: 'This variable is deprecated in favour of "fail".'
     required: false
+  verbose:
+    description: 'Make action verbose.'
+    default: 'false'
+    required: false
 outputs:
   files_exists:
     description: 'Whether the file(s) exists or not.'
 runs:
-  using: 'node20'
+  using: 'node24'
   main: 'dist/index.js'
