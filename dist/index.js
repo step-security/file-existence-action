@@ -94,6 +94,7 @@ function run() {
             }
             const failure = (core.getInput('fail') || 'false').toUpperCase() === 'TRUE' ||
                 allow_failure;
+            const verbose = (core.getInput('verbose') || 'false').toUpperCase() === 'TRUE';
             const fileList = files
                 .split(',')
                 .map((item) => item.trim());
@@ -109,13 +110,15 @@ function run() {
                 if (failure) {
                     core.setFailed(`These files don't exist: ${missingFiles.join(', ')}`);
                 }
-                else {
+                else if (verbose) {
                     core.info(`These files don't exist: ${missingFiles.join(', ')}`);
                 }
                 core.setOutput('files_exists', 'false');
             }
             else {
-                core.info('🎉 All files exist');
+                if (verbose) {
+                    core.info('🎉 All files exist');
+                }
                 core.setOutput('files_exists', 'true');
             }
         }

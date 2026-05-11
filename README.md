@@ -8,7 +8,7 @@ This is a GitHub Action to check for the existence of files. It can be used for 
 
 ## Usage
 
-The following example [workflow step](https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow) will check for existence of the files: `package.json`, `LICENSE`, `README.md`, `foo` `bar`
+The following example workflow step will check for existence of the files: `package.json`, `LICENSE`, `README.md`, `foo` `bar`
 
 ```yml
 - name: "Check file existence"
@@ -24,9 +24,10 @@ The following input variables options can/must be configured:
 |Input variable|Necessity|Description|Default|
 |----|----|----|----|
 |`files`|Required|Comma separated string with paths to files and directories to check for existence. Supports [glob paterns](https://github.com/isaacs/node-glob).||
-|`ignore_case`|Optional|Ignore if a file name has upper or lower cases.|`true`|
-|`follow_symbolic_links`|Optional|Indicates whether to follow symbolic links.|`true`|
+|`ignore_case`|Optional|Ignore if a file name has upper or lower cases.|`false`|
+|`follow_symlinks`|Optional|Indicates whether to follow symbolic links.|`true`|
 |`fail`|Optional|Makes the Action fail on missing files.|`false`|
+|`verbose`|Optional|Displays file existence messages.|`false`|
 
 ## Outputs
 - `files_exists`: Outputs `true` if the file(s) exists, otherwise `false`.
@@ -62,4 +63,4 @@ jobs:
 Copyright © 2020 [André Storhaug](https://github.com/andstor)
 Copyright © 2025 [Step Security](https://github.com/step-security)
 
-file-existence-action is licensed under the [MIT License](https://github.com/step-security/file-existence-ation/blob/master/LICENSE).
+file-existence-action is licensed under the [MIT License](https://github.com/step-security/file-existence-action/blob/main/LICENSE).

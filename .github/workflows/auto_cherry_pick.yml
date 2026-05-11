@@ -7,6 +7,10 @@ on:
         description: "Base branch to create the PR against"
         required: true
         default: "main"
+      script:
+        description: 'Script to run after audit fix'
+        required: false
+        default: 'npm run all'
 
 permissions:
   contents: write
@@ -21,3 +25,4 @@ jobs:
       original-owner: "andstor"
       repo-name: "file-existence-action"
       base_branch: ${{ inputs.base_branch }}
+      script: ${{ inputs.script || 'npm run all' }}
