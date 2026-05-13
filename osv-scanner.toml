@@ -1,0 +1,11 @@
+[[IgnoredVulns]]
+id = "GHSA-73rr-hh4g-fpgx"
+reason = "diff v7.0.0 (dev dependency via mocha) - Fix requires upgrading mocha to v11+ (semver major). Low severity (CVSS 2.7). No production impact."
+
+[[IgnoredVulns]]
+id = "GHSA-5c6j-r48x-rmvq"
+reason = "serialize-javascript v6.0.2 (dev dependency via mocha) - Fix requires upgrading mocha to v11+ (semver major). High severity but no production impact as it is only used in test tooling."
+
+[[IgnoredVulns]]
+id = "GHSA-qj8w-gfj5-8c6v"
+reason = "serialize-javascript v6.0.2 (dev dependency via mocha) - Fix requires upgrading mocha to v11+ (semver major). Moderate severity but no production impact as it is only used in test tooling."
