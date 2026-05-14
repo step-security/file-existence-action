@@ -1,0 +1,11 @@
+[[IgnoredVulns]]
+id = "GHSA-73rr-hh4g-fpgx"
+reason = "Transitive dev dependency via mocha (devDependency, not shipped to production)."
+
+[[IgnoredVulns]]
+id = "GHSA-5c6j-r48x-rmvq"
+reason = "Transitive dev dependency via mocha (devDependency, not shipped to production)."
+
+[[IgnoredVulns]]
+id = "GHSA-qj8w-gfj5-8c6v"
+reason = "Transitive dev dependency via mocha (devDependency, not shipped to production)."
