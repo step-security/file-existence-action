@@ -7,14 +7,17 @@ on:
         description: "Base branch to create the PR against"
         required: true
         default: "main"
-      script:
-        description: 'Script to run after audit fix'
-        required: false
-        default: 'npm run all'
       node_version:
         description: "Specify Node.js version (e.g., '18', '20', 'lts/*')"
         required: false
         default: "24"
+      mode:
+        description: "Run mode: cherry-pick or verify"
+        required: false
+        default: "cherry-pick"
+
+  pull_request:
+    types: [ labeled, opened, synchronize ]
 
 permissions:
   contents: write
@@ -24,10 +27,11 @@ permissions:
 
 jobs:
   cherry-pick:
+    if: github.event_name == 'workflow_dispatch' || contains(fromJson(toJson(github.event.pull_request.labels)).*.name, 'review-required')
     uses: step-security/reusable-workflows/.github/workflows/auto_cherry_pick.yaml@v1
     with:
       original-owner: "andstor"
       repo-name: "file-existence-action"
       base_branch: ${{ inputs.base_branch }}
-      script: ${{ inputs.script || 'npm run all' }}
       node_version: "${{ inputs.node_version || '24' }}"
+      mode: ${{ github.event_name == 'pull_request' && 'verify' || inputs.mode }}
