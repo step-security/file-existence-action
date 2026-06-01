@@ -79,11 +79,11 @@ function validateSubscription() {
         const action = process.env.GITHUB_ACTION_REPOSITORY;
         const docsUrl = 'https://docs.stepsecurity.io/actions/stepsecurity-maintained-actions';
         core.info('');
-        core.info('[1;36mStepSecurity Maintained Action[0m');
+        core.info('\u001b[1;36mStepSecurity Maintained Action\u001b[0m');
         core.info(`Secure drop-in replacement for ${upstream}`);
         if (repoPrivate === false)
-            core.info('[32m✓ Free for public repositories[0m');
-        core.info(`[36mLearn more:[0m ${docsUrl}`);
+            core.info('\u001b[32m\u2713 Free for public repositories\u001b[0m');
+        core.info(`\u001b[36mLearn more:\u001b[0m ${docsUrl}`);
         core.info('');
         if (repoPrivate === false)
             return;
@@ -96,8 +96,8 @@ function validateSubscription() {
         }
         catch (error) {
             if ((0, axios_1.isAxiosError)(error) && ((_b = error.response) === null || _b === void 0 ? void 0 : _b.status) === 403) {
-                core.error(`[1;31mThis action requires a StepSecurity subscription for private repositories.[0m`);
-                core.error(`[31mLearn how to enable a subscription: ${docsUrl}[0m`);
+                core.error('\u001b[1;31mThis action requires a StepSecurity subscription for private repositories.\u001b[0m');
+                core.error(`\u001b[31mLearn how to enable a subscription: ${docsUrl}\u001b[0m`);
                 process.exit(1);
             }
             core.info('Timeout or API not reachable. Continuing to next step.');
