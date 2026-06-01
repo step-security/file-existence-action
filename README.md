@@ -10,7 +10,7 @@ This is a GitHub Action to check for the existence of files. It can be used for 
 
 ## Usage
 
-The following example [workflow step](https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow) will check for existence of the files: `package.json`, `LICENSE`, `README.md`, `foo` `bar`
+The following example workflow step will check for existence of the files: `package.json`, `LICENSE`, `README.md`, `foo` `bar`
 
 ```yml
 - name: "Check file existence"
@@ -29,6 +29,7 @@ The following input variables options can/must be configured:
 |`ignore_case`|Optional|Ignore if a file name has upper or lower cases.|`true`|
 |`follow_symbolic_links`|Optional|Indicates whether to follow symbolic links.|`true`|
 |`fail`|Optional|Makes the Action fail on missing files.|`false`|
+|`verbose`|Optional|Displays file existence messages.|`false`|
 
 ## Outputs
 - `files_exists`: Outputs `true` if the file(s) exists, otherwise `false`.
@@ -45,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Check file existence
         id: check_files
